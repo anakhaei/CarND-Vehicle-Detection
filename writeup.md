@@ -19,9 +19,7 @@ The goals / steps of this project are the following:
 [image5]: ./output_images/windows_close.png
 [image6]: ./output_images/windows.png
 [image7]: ./output_images/processed_image.png
-
-[image8]: ./output_images/heat_map.jpg
-# [video1]: ./project_video_output.mp4
+[image8]: ./output_images/heat_map.png
 
 
 
@@ -52,10 +50,14 @@ I used the same technique as it was mentioned in teh course. I created 4 differe
 
 Here are pictures related to each type of windows:
 
-![alt text][image2]
+![small images][image2]
+
 ![alt text][image3]
+
 ![alt text][image4]
+
 ![alt text][image5]
+
 ![alt text][image6]
 
 I have used my sliding windoes and classifier on test pictures and here are the results;
