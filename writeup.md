@@ -50,7 +50,7 @@ I used the same technique as it was mentioned in teh course. I created 4 differe
 
 Here are pictures related to each type of windows:
 
-![small images][image2]
+![small windoes][image2]
 
 ![alt text][image3]
 
