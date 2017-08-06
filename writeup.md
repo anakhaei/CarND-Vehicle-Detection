@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 [image7]: ./output_images/processed_image.png
 
 [image8]: ./examples/heat_map.jpg
-[video1]: ./project_video.mp4
+# [video1]: ./project_video_output.mp4
 
 
 
@@ -52,7 +52,7 @@ I used the same technique as it was mentioned in teh course. I created 4 differe
 
 Here are pictures related to each type of windows:
 
-![alt text][image2] <!-- .element height="50%" width="50%" -->
+![alt text][image2]
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
@@ -82,9 +82,9 @@ I implemented my pipeline as follow:
 Here's a [link to my video result](./project_video_output.mp4)
 
 
-###Discussion
+### Discussion
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
+Here are some challenges or issues that I encountered during the development of the vehicle detector:
+- Format of pctures (RGB vs BGR) introduced a bug initially. It's very important to track the image format that we use since the pipeline is RGB and cv2.imread returns BGR.
+- After fine tuning the size of windows and threshold, I was able to detect vehicles. As a future work, using tracking algorithm will improve the performance.
+- I have used 4 size of boxes to search for vehicles. A smarter way of using sliding boxes should be used based on the information from tracking.
