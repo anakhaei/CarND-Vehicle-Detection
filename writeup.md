@@ -21,9 +21,6 @@ The goals / steps of this project are the following:
 [image7]: ./output_images/processed_image.png
 
 [image8]: ./examples/heat_map.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
 
@@ -55,7 +52,7 @@ I used the same technique as it was mentioned in teh course. I created 4 differe
 
 Here are pictures related to each type of windows:
 
-![alt text][image2]
+![alt text][image2] <!-- .element height="50%" width="50%" -->
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
@@ -63,8 +60,7 @@ Here are pictures related to each type of windows:
 
 I have used my sliding windoes and classifier on test pictures and here are the results;
 
-![alt text][image5]
-![alt text][image6]
+
 ![alt text][image7]
 
 ### Multiple Detections & False Positives
