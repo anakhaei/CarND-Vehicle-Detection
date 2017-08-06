@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [image6]: ./output_images/windows.png
 [image7]: ./output_images/processed_image.png
 
-[image8]: ./examples/heat_map.jpg
+[image8]: ./output_images/heat_map.jpg
 # [video1]: ./project_video_output.mp4
 
 
