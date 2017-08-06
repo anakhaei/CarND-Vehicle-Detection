@@ -13,12 +13,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 [image1]: ./examples/car_not_car.png
-[image2]: ./examples/windows_far.jpg
-[image3]: ./examples/windows_mid.jpg
-[image4]: ./examples/windows_close.jpg
-[image5]: ./examples/test_picture1.jpg
-[image6]: ./examples/test_picture2.jpg
-[image7]: ./examples/test_picture3.jpg
+[image2]: ./output_images/windows_far.png
+[image3]: ./output_images/windows_mid_far.png
+[image4]: ./output_images/windows_mid.png
+[image5]: ./output_images/windows_close.png
+[image6]: ./output_images/windows.png
+[image7]: ./output_images/processed_image.png
+
 [image8]: ./examples/heat_map.jpg
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
@@ -27,7 +28,7 @@ The goals / steps of this project are the following:
 
 
 
-###Feature Extractor
+### Feature Extractor
 
 The code for this step is contained in the first code cell of the IPython notebook. I created 3 functions to extract "binned color features",
  "color histogram features" and "HOG features". All these features are appended into one list in 'extract_feature()' function.
@@ -45,10 +46,11 @@ for validation. To increase the efficiency of my classifier, I augmented the dat
 * Test Accuracy  0.9921
 
 ### Sliding window technique
-I used the same technique as it was mentioned in teh course. I created 3 different types of Windows:
+I used the same technique as it was mentioned in teh course. I created 4 different types of Windows:
 
-* Window_far: Which are smaller and based on perspective, they will cover the far distance
-* Windoe_mid: Bigger windoes that cover mid distance from the ego car. 
+* Window_far: Smallest windos to bound cars in the far distance
+* Window_mid_far: Which are smaller bounding windows to cover teh vehicles in mid_far distance
+* Windoe_mid: Bigger windoes that cover mid distance vehicles 
 * Window_close :These are the biggest windows that I uesed which cover the closer areas to the ego car.
 
 Here are pictures related to each type of windows:
@@ -56,6 +58,8 @@ Here are pictures related to each type of windows:
 ![alt text][image2]
 ![alt text][image3]
 ![alt text][image4]
+![alt text][image5]
+![alt text][image6]
 
 I have used my sliding windoes and classifier on test pictures and here are the results;
 
