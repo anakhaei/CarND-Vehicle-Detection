@@ -25,16 +25,41 @@ The goals / steps of this project are the following:
 
 ### Feature Extractor
 
-The code for this step is contained in the first code cell of the IPython notebook. I created 3 functions to extract "binned color features",
- "color histogram features" and "HOG features". All these features are appended into one list in 'extract_feature()' function.
+I created 3 functions to extract the following features from images:
+
+* binned color features
+* color histogram features
+* HOG features
+
+All these features are appended into one list in 'extract_feature()' function. Here are the parameters that used in each function:
+
+#### binned color features
+I used 'cv2.resize().ravel()' to create the feature vector. I tried "(16, 16)" and "(32, 32)" and at the end "(16, 16)" provided a good performance. I implemented the code of binned color extraction in 'def bin_spatial(img, size=(32, 32))' function.
+
+#### color histogram features
+I used 'np.histogram()' to compute color histogram of each channel seperatly and at the end, I concatenayed them into one vector. I used 16 bin for the histogram and used 0 to 256 as the range. I implemented the code in the 'def color_hist()' function.
+
+#### HOG features
+I used 'hog()' function to extract HOG features. Getting HOG features was the trickies part since it required more tries and error.  At the end, the follwoing settings provided a good performance to extract HOG features that work well with my classifier in teh next section:
+
+* orient = 9  # HOG orientations
+* pix_per_cell = 8 # HOG pixels per cell
+* cell_per_block = 2 # HOG cells per block
+
+The code for HOG feature extraction is implemented in 'def get_hog_features()' function.
 
 ### Develop and train a Linear SVM classifier
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 ![alt text][image1]
 
-I then used my 'extract_feature()' to extract the features and train an Leaner SVM classifer. I used 80% of my data set for training and 20% 
-for validation. To increase the efficiency of my classifier, I augmented the dataset by flipping the images. Here is the validation results of my classifier:
+I then used my 'extract_feature()' to extract the features and train an Leaner SVM classifer:
+
+* I used 80% of my data set for training and 20% for validation.
+* I augmented the dataset by flipping the images to increase the efficiency of my classifier.
+* I also tried different color space and 'HSV' provided a better accuracy. 
+
+Here is the validation results of my classifier:
 
 
 * Number of Feature : 6108
@@ -87,6 +112,10 @@ Here's a [link to my video result](./project_video_output.mp4)
 ### Discussion
 
 Here are some challenges or issues that I encountered during the development of the vehicle detector:
-- Format of pctures (RGB vs BGR) introduced a bug initially. It's very important to track the image format that we use since the pipeline is RGB and cv2.imread returns BGR.
+
+- Format of pctures (RGB vs BGR) introduced a bug initially. It's very important to track the image format that we use since the pipeline is RGB and cv2.imread returns BGR. I implemented the code in the way that the impot images are always RGB and then, I changed the color space if it was required inside the feature_extractor file. 
+- Color Space: I tried different color space to create a classifier. Although the performance was quite similar, but HSV provided a petter accuracy.
 - After fine tuning the size of windows and threshold, I was able to detect vehicles. As a future work, using tracking algorithm will improve the performance.
 - I have used 4 size of boxes to search for vehicles. A smarter way of using sliding boxes should be used based on the information from tracking.
+- I tried to limit my searching area (windows location) to reduce the number of windows. However, I made some assumptions such as limits of road curvature. My algorithms will fail in more general cases where the radius of curvature is less than my assumptions. Combining lane detection and vehicle detection might help.
+
